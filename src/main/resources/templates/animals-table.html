@@ -5,23 +5,40 @@
   <title>Animal list</title>
 </head>
 <style>
+  .table {
+      display: table;
+      width: 100%;
+  }
 
+  .table-header {
+      display: table-header-group;
+      text-align: center;
+  }
+
+  .table-row {
+      display: table-row;
+  }
+
+  .table-cell {
+      display: table-cell;
+      border-style: groove;
+  }
 </style>
 <body>
-  <div style="display: table; width: 100%">
-    <div style="display: table-header-group;">
-      <div style="display: table-cell; border-style: groove;">Number</div>
-      <div style="display: table-cell; border-style: groove;">Animal Name</div>
-      <div style="display: table-cell; border-style: groove;">Class</div>
-      <div style="display: table-cell; border-style: groove;">Type</div>
-      <div style="display: table-cell; border-style: groove;">Storage location</div>
+  <div class="table">
+    <div class="table-header">
+      <div class="table-cell">Number</div>
+      <div class="table-cell">Animal Name</div>
+      <div class="table-cell">Class</div>
+      <div class="table-cell">Type</div>
+      <div class="table-cell">Storage location</div>
     </div>
-    <div style="display: table-row-group;" th:each="animal : ${animalList}">
-      <div style="display: table-cell; border-style: groove;" th:text="${animal.id}"></div>
-      <div style="display: table-cell; border-style: groove;" th:text="${animal.name}"></div>
-      <div style="display: table-cell; border-style: groove;" th:text="${animal.animalClass}"></div>
-      <div style="display: table-cell; border-style: groove;" th:text="${animal.animalType}"></div>
-      <div style="display: table-cell; border-style: groove;" th:text="${animal.animalWarehouse}"></div>
+    <div class="table-row" th:each="animal : ${animalList}">
+      <div class="table-cell" th:text="${animal.id}"></div>
+      <div class="table-cell" th:text="${animal.name}"></div>
+      <div class="table-cell" th:text="${animal.animalClass}"></div>
+      <div class="table-cell" th:text="${animal.animalType}"></div>
+      <div class="table-cell" th:text="${animal.animalWarehouse}"></div>
     </div>
   </div>
 </body>

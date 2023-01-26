@@ -24,6 +24,10 @@ public class AnimalServiceImpl implements AnimalService {
     return animalRepository.findFirstByAnimalType(animalType).map(Animal::getAnimalWarehouse).orElse(null);
   }
 
+  public boolean checkWarehouseOccupation(AnimalWarehouse animalWarehouse) {
+    return animalRepository.checkWarehouseOccupation(animalWarehouse);
+  }
+
   public void saveAnimal(Animal animal) {
     animalRepository.save(animal);
   }

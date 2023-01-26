@@ -40,13 +40,15 @@ public class AnimalController {
   @PostMapping("/create")
   public String saveAnimal(AnimalDto animal, Model model) {
     AnimalWarehouse animalWarehouse = animalService.checkWarehouse(animal.getAnimalType());
-    if(animalWarehouse == null || animal.getAnimalWarehouse().equals(animalWarehouse)) {
+    boolean warehouseOccupation = animalService.checkWarehouseOccupation(animal.getAnimalWarehouse());
+
+    if(!warehouseOccupation || animal.getAnimalWarehouse().equals(animalWarehouse)) {
       animalService.saveAnimal(convertToEntity(animal));
       return "success";
     } else {
       model.addAttribute("selectedWarehouse", animal.getAnimalWarehouse());
       model.addAttribute("selectedType", animal.getAnimalType());
-      model.addAttribute("rightWarehouse", animalWarehouse);
+      model.addAttribute("rightWarehouse", animalWarehouse == null ? "another" : animalWarehouse);
       return "fail";
     }
   }

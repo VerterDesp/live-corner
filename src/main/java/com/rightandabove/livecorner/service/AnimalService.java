@@ -11,6 +11,8 @@ public interface AnimalService {
 
   AnimalWarehouse checkWarehouse(AnimalType animalType);
 
+  boolean checkWarehouseOccupation(AnimalWarehouse animalWarehouse);
+
   void saveAnimal(Animal animal);
 
   List<AnimalDto> findAll();

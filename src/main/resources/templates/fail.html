@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <title>Fail!!!</title>
 </head>
+<style>
+  .crimson {
+      color: crimson;
+  }
+</style>
 <body>
-  <h4 style="color: crimson"
+  <h4 class="crimson"
       th:text="'Selected warehouse - '+ ${selectedWarehouse} + ' is not for ' + ${selectedType} + ', chose - ' + ${rightWarehouse}">
   </h4>
   <a href="/animals/create">Back to creation page</a><span> | </span><a href="/animals/all">All animals page</a>
