@@ -4,23 +4,18 @@ import com.rightandabove.livecorner.model.enums.AnimalClass;
 import com.rightandabove.livecorner.model.enums.AnimalType;
 import com.rightandabove.livecorner.model.enums.AnimalWarehouse;
 
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 
 public class AnimalDto {
   private Integer id;
 
-  @NotNull
   private String name;
 
-  @NotNull
   private AnimalClass animalClass;
 
-  @NotNull
   private AnimalType animalType;
 
-  @NotNull
   private AnimalWarehouse animalWarehouse;
 
   public AnimalDto() {

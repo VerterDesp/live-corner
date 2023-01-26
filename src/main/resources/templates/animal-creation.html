@@ -6,35 +6,79 @@
 </head>
 <style>
   .form {
-      width: 350px;
+      width: 450px;
+      border: 3px solid darkgrey;
+  }
+
+  .block {
+      width: 50%;
+      padding: 3px;
+  }
+
+  .box-sizing {
+      box-sizing: border-box;
+  }
+
+  .w-50 {
+      display: flex;
+  }
+
+  .border-bottom {
+      border-bottom: 3px solid darkgrey;
+  }
+
+  .border-right {
+      border-right: 3px solid darkgrey;
+  }
+
+  .w-100 {
+      width: 100%;
+  }
+
+  .save {
+      margin: 7px;
+      text-align: center;
   }
 </style>
 <body>
   <form class="form" action="#" th:action="@{/animals/create}" th:object="${animal}" method="post">
-    <p>
-      Animal Name: <input type="text" th:field="*{name}">
-    </p>
-    <p>
-      Class: <select th:field="*{animalClass}">
-                <option th:each="class : ${classes}" th:value="${class}" th:text="${class}">
-                </option>
-             </select>
-    </p>
-    <p>
-      Type: <select th:field="*{animalType}">
-              <option th:each="type : ${types}" th:value="${type}" th:text="${type}">
-              </option>
-            </select>
-    </p>
-    <p>
-      Storage location: <select th:field="*{animalWarehouse}">
-                          <option th:each="warehouse : ${warehouses}" th:value="${warehouse}" th:text="${warehouse}">
-                          </option>
-                        </select>
-    </p>
-    <p>
-      <input type="submit" value="Save"/>
-    </p>
+    <div class="w-50">
+      <div class="block border-right border-bottom"> Animal Name: </div>
+      <div class="block border-bottom"> <input class="w-100 box-sizing" type="text" th:field="*{name}"> </div>
+    </div>
+
+
+    <div class="w-50">
+      <div class="block border-right border-bottom"> Class: </div>
+      <div class="block border-bottom">
+        <select class="w-100" th:field="*{animalClass}">
+          <option th:each="class : ${classes}" th:value="${class}" th:text="${class}">
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="w-50">
+      <div class="block border-right border-bottom"> Type: </div>
+      <div class="block border-bottom">
+        <select class="w-100" th:field="*{animalType}">
+          <option th:each="type : ${types}" th:value="${type}" th:text="${type}">
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="w-50 border-bottom">
+      <div class="block border-right"> Storage location: </div>
+      <div class="block">
+        <select class="w-100" th:field="*{animalWarehouse}">
+          <option th:each="warehouse : ${warehouses}" th:value="${warehouse}" th:text="${warehouse}">
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="save"> <input type="submit" value="Save"/> </div>
   </form>
 </body>
 </html>
