@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Animal list</title>
+</head>
+<style>
+
+</style>
+<body>
+  <div style="display: table; width: 100%">
+    <div style="display: table-header-group;">
+      <div style="display: table-cell; border-style: groove;">Number</div>
+      <div style="display: table-cell; border-style: groove;">Animal Name</div>
+      <div style="display: table-cell; border-style: groove;">Class</div>
+      <div style="display: table-cell; border-style: groove;">Type</div>
+      <div style="display: table-cell; border-style: groove;">Storage location</div>
+    </div>
+    <div style="display: table-row-group;" th:each="animal : ${animalList}">
+      <div style="display: table-cell; border-style: groove;" th:text="${animal.id}"></div>
+      <div style="display: table-cell; border-style: groove;" th:text="${animal.name}"></div>
+      <div style="display: table-cell; border-style: groove;" th:text="${animal.animalClass}"></div>
+      <div style="display: table-cell; border-style: groove;" th:text="${animal.animalType}"></div>
+      <div style="display: table-cell; border-style: groove;" th:text="${animal.animalWarehouse}"></div>
+    </div>
+  </div>
+</body>
+</html>

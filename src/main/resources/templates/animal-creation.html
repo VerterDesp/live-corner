@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Animal creation</title>
+</head>
+<body>
+  <form style="width: 350px;" action="#" th:action="@{/animals/create}" th:object="${animal}" method="post">
+    <p>
+      Animal Name: <input type="text" th:field="*{name}">
+    </p>
+    <p>
+      Class: <select th:field="*{animalClass}">
+                <option th:each="class : ${classes}" th:value="${class}" th:text="${class}">
+                </option>
+             </select>
+    </p>
+    <p>
+      Type: <select th:field="*{animalType}">
+              <option th:each="type : ${types}" th:value="${type}" th:text="${type}">
+              </option>
+            </select>
+    </p>
+    <p>
+      Storage location: <select th:field="*{animalWarehouse}">
+              <option th:each="warehouse : ${warehouses}" th:value="${warehouse}" th:text="${warehouse}">
+              </option>
+            </select>
+    </p>
+    <p>
+      <input type="submit" value="Save"/>
+    </p>
+  </form>
+</body>
+</html>
