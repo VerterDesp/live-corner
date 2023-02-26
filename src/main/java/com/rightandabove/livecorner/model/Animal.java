@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Animal {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   @NotBlank

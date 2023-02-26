@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  live-corner-app:
+    image: live-corner-app
+    container_name: one
+    build: ./
+    ports:
+      - "8081:7000"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/live_corner
+    restart: always
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=live_corner
+    restart: always
